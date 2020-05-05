@@ -26,11 +26,25 @@ import { JobformComponent } from './jobform/jobform.component';
 import { OrviewComponent } from './orview/orview.component';
 import { JobviewComponent } from './jobview/jobview.component';
 import { ResumeComponent } from './resume/resume.component';
-import { CandiviewComponent } from './candiview/candiview.component';
-import { MultiselectComponent } from './multiselect/multiselect.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SelectProfileComponent } from './select-profile/select-profile.component';
 import { FooterComponent } from './footer/footer.component';
+import { CandiviewComponent } from './candiview/candiview.component';
+import { MultiselectComponent } from './multiselect/multiselect.component';
+import { UserComponent } from './user/user.component';
+import { CommonModule } from '@angular/common';
+import { UniversityComponent } from './university/university.component';
+import { UniversityReadComponent } from './university-read/university-read.component';
+import { User } from './shared/user.model';
+import { JobApplyComponent } from './job-apply/job-apply.component';
+import { JobApplyDialogComponent } from './dialogs/job-apply-dialog/job-apply-dialog.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { JobSearchComponent } from './job-search/job-search.component';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatMenuModule} from '@angular/material/menu';
+
+
 
 
 @NgModule({
@@ -59,16 +73,32 @@ import { FooterComponent } from './footer/footer.component';
     LandingPageComponent,
     SelectProfileComponent,
     FooterComponent,
+    CandiviewComponent,
+    MultiselectComponent,
+    UserComponent,
+    UniversityComponent,
+    UniversityReadComponent,
+    JobApplyComponent,
+    JobApplyDialogComponent,
+    JobSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     HttpClientModule,
-    PasswordStrengthMeterModule
+    PasswordStrengthMeterModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule
   ],
-  providers: [QuizService],
-  bootstrap: [AppComponent]
+  providers: [QuizService, User],
+  bootstrap: [AppComponent],
+  entryComponents: [JobApplyDialogComponent]
+
 })
 export class AppModule { }
